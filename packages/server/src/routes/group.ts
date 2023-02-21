@@ -27,9 +27,14 @@ export async function createGroup(ctx: Context<{
   })
 
 
-  return GroupModel.findOne({_id: wrapObjectId(group._id)})
+  const createdGroup = await GroupModel.findOne({_id: wrapObjectId(group._id)})
   .populate('creator', '-password -salt')
-  .populate('members',)
+  .populate('members')
+
+  return {
+    chat,
+    group: createdGroup
+  }
 }
 
 export async function addGroupMember(ctx: Context<{

@@ -5,15 +5,17 @@ import MessageList from '../MessageList/MessageList';
 import ChatInput from '../ChatInput/ChatInput';
 import './ChatFrame.scss'
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { curChatSelector, curMsgListSelector, fetchServerMsgList, addNewMsg, IMsgItem, changeCurChat } from '@/store/chat/chatSlice';
+import { curChatSelector, curMsgListSelector, fetchServerMsgList, addNewMsg, IMsgItem, changeCurChat, fetchServerChatList } from '@/store/chat/chatSlice';
 import { userIdSelector } from '@/store/user/userSlice';
 import { createGroup, fetchMsgList, readMsg, sendMsg } from '@/api';
 import GroupDialog from './GroupDialog'
+import { useNavigate } from 'react-router-dom';
 
 export default function ChatFrame() {
 
   const flagRef = useRef<HTMLDivElement>(null)
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   
 
   const curChat = useAppSelector(curChatSelector);
@@ -35,14 +37,20 @@ export default function ChatFrame() {
   }
 
   const onCreateGroup = async (ids: string[], groupName: string) => {
-    const group = await createGroup({
+    const groupWithChat = await createGroup({
       name: groupName,
       ids,
       creator: userId!
     })
 
-    if (group._id) {
+    if (groupWithChat.group._id) {
       setOpenGroupDialog(false)
+    }
+
+    if (groupWithChat.chat._id) {
+      dispatch(fetchServerChatList(userId)).then(() => {
+        navigate(`/chat?chatId=${groupWithChat.chat._id}`)
+      })
     }
   } 
 

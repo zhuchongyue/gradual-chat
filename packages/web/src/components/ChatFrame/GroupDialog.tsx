@@ -145,7 +145,6 @@ export default function GroupDialog(props: {
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
             setGroupName(event.target.value);
           }}
-          defaultValue="Hello World"
           id="outlined-gname"
           label="Input Group Name"
           placeholder="Input Group Name"

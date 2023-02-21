@@ -4,6 +4,7 @@
 //   ids: string[];
 //   creator: string; // 创建者
 
+import { IChatItem } from "@/store/chat/chatSlice";
 import request from "./request";
 
 export interface IGroup {
@@ -24,6 +25,9 @@ export async function createGroup(info: {
   ids: string[];
   creator: string; // 创建者
 }) {
-  const group = await request<IGroup>('createGroup', info)
+  const group = await request<{
+    group:IGroup,
+    chat: IChatItem
+  }>('createGroup', info)
   return group
 }
