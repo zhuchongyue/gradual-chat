@@ -1,0 +1,21 @@
+.chat-frame-head {
+  padding: 0 20px;
+  color: white;
+  display: flex;
+  // height: 64px;
+  line-height: 64px;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+
+  &-label {
+
+    flex: 1;
+    // font-family: 'Inter';
+    // font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  &-action {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,12 @@
+.chat-frame {
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+ background-color: #26252D;
+
+ &-list-flag {
+  height: 1px;
+  background-color: transparent;
+ }
+}

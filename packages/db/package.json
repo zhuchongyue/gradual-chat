@@ -1,0 +1,10 @@
+{
+  "name": "@gradual-chat/db",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "sequelize": "^6.28.0"
+  }
+}

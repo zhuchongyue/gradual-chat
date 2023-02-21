@@ -1,0 +1,7 @@
+
+.mem-list-item {
+  cursor: pointer;
+   &-active, &:hover {
+    background-color: #26252D;
+  }
+}

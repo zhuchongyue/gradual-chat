@@ -1,0 +1,31 @@
+.header {
+  color: white;
+  padding: 15px 25px;
+  display: flex;
+
+  &-logo {
+    flex: 1;
+
+    img {
+      display: inline-flex ;
+      vertical-align: middle;
+      margin-right: 20px;
+    }
+  }
+
+  &-actions {
+    color: #929699;
+    cursor: pointer;
+    & > * {
+      display: inline-flex !important;
+      vertical-align: middle;
+      margin-left: 15px;
+    }
+
+    span {
+      font-weight: 600;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+  }
+}
